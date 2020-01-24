@@ -1,6 +1,6 @@
 # hello-world
 
-> 为了vue的学习产生的工程,关联成功
+> 为了vue的学习产生的工程
 
 npm run dev
 
