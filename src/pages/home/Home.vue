@@ -1,41 +1,8 @@
 <template>
-  <div id="app">
+  <div>
     <HomeHeader></HomeHeader>
-    <input type="text" v-model="inputText"/>
-    <button v-on:click="submitText">递交</button>
-    <ul>
-      <li
-          v-for="(item,index) in list"
-          v-bind:content="item"
-          v-bind:key="item"
-          v-on:click="remove(index)"
-      >{{item}}
-      </li>
-    </ul>
-    全局组件
-    <ul>
-      <li-list v-for="(item,index) in list"
-               v-bind:content="item"
-               v-bind:key="item"
-               v-on:click="remove(index)"
-      ></li-list>
-    </ul>
-    局部组件
-    <ul>
-      <part-li-list v-for="(item,index) in list"
-                    v-bind:content="item"
-                    v-bind:index="index"
-                    v-bind:key="item"
-                    v-on:delete="handleDelete(index)">
-      </part-li-list>
-    </ul>
-    <br>
-    <span>{{inputText}}</span>
-    <br>
-    <span>{{newInputText}}</span>
-    <br>
-    <input ref="newInput" type="text" v-model="newInputText"/>
-    <button @click="newInputText = this.$refs.newInput.value">递交</button>
+    <HomeSwiper></HomeSwiper>
+    <span>testtesttesttesttesttesttesttesttesttesttesttesttesttest</span>
   </div>
 </template>
 
@@ -43,6 +10,7 @@
 import LiList from '../LiList'
 import PartLiList from '../PartLiList'
 import HomeHeader from './components/Header'
+import HomeSwiper from './components/Swiper'
 
 export default {
   name: 'Home',
@@ -55,7 +23,8 @@ export default {
   components: {
     PartLiList,
     LiList,
-    HomeHeader
+    HomeHeader,
+    HomeSwiper
   },
   methods: {
     submitText: function () {
@@ -82,6 +51,6 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>

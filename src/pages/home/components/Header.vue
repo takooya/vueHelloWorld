@@ -43,6 +43,7 @@ export default {
 
   .header-right
     width: 20%
+    padding-left: 12px
 
     .icon-font
       font-size: 6px
