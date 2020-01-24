@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <HomeHeader></HomeHeader>
     <input type="text" v-model="inputText"/>
     <button v-on:click="submitText">递交</button>
     <ul>
@@ -41,6 +42,7 @@
 <script>
 import LiList from '../LiList'
 import PartLiList from '../PartLiList'
+import HomeHeader from './components/Header'
 
 export default {
   name: 'Home',
@@ -52,7 +54,8 @@ export default {
   },
   components: {
     PartLiList,
-    LiList
+    LiList,
+    HomeHeader
   },
   methods: {
     submitText: function () {
