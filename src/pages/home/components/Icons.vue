@@ -1,0 +1,118 @@
+<template>
+  <div class="icons">
+    <swiper>
+      <swiper-slide v-for="(page,index) of pages" :key="index">
+        <div class="icon" v-for="item of page" v-bind:key="item.id">
+          <div class="icon-img"><img class="icon-img-content" :src="item.iconUrl"/></div>
+          <p class="icon-desc">{{item.name}}</p>
+        </div>
+      </swiper-slide>
+    </swiper>
+  </div>
+</template>
+
+<script>
+import HomeSwiper from './Swiper'
+
+export default {
+  name: 'HomeIcons',
+  components: {HomeSwiper},
+  data () {
+    return {
+      iconList: [{
+        id: '0001',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
+        name: '热门景点'
+      }, {
+        id: '0002',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+        name: '一日游'
+      }, {
+        id: '0003',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/87/20656da0ac042002.png',
+        name: '家乡特色'
+      }, {
+        id: '0004',
+        iconUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png',
+        name: '必游景点'
+      }, {
+        id: '0005',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
+        name: '滑雪季'
+      }, {
+        id: '0006',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
+        name: '泡温泉'
+      }, {
+        id: '0007',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+        name: '男生最爱'
+      }, {
+        id: '0008',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/87/20656da0ac042002.png',
+        name: '女生最爱'
+      }, {
+        id: '0009',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
+        name: '最新开张最新开张最新开张最新开张最新开张最新开张最新开张最新开张最新开张最新开张'
+      }]
+    }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.iconList.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+@import "~styles/varibles.styl"
+@import "~styles/mixins.styl"
+.icons >>> .swiper-container
+  height: 0
+  padding-bottom: 50%
+
+.icon
+  position: relative
+  overflow: hidden
+  height: 0
+  width: 25%
+  float: left
+  padding-bottom: 25%
+
+  .icon-img
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 24px
+    background: white
+    box-sizing: border-box
+    padding: 1px
+
+    .icon-img-content
+      height: 100%
+      display: block
+      margin: 0 auto
+
+  .icon-desc
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    line-height: 24px
+    height: 24px
+    color: $darkTextColor
+    text-align: center
+    ellipsis()
+
+</style>

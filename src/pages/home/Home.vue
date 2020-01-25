@@ -1,8 +1,8 @@
 <template>
   <div>
-    <HomeHeader></HomeHeader>
-    <HomeSwiper></HomeSwiper>
-    <span>testtesttesttesttesttesttesttesttesttesttesttesttesttest</span>
+    <home-header></home-header>
+    <home-swiper></home-swiper>
+    <home-icons></home-icons>
   </div>
 </template>
 
@@ -11,6 +11,7 @@ import LiList from '../LiList'
 import PartLiList from '../PartLiList'
 import HomeHeader from './components/Header'
 import HomeSwiper from './components/Swiper'
+import HomeIcons from './components/Icons'
 
 export default {
   name: 'Home',
@@ -24,7 +25,8 @@ export default {
     PartLiList,
     LiList,
     HomeHeader,
-    HomeSwiper
+    HomeSwiper,
+    HomeIcons
   },
   methods: {
     submitText: function () {
