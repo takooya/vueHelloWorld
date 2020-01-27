@@ -4,8 +4,8 @@
       <div class="iconfont">&#xe606;</div>
     </div>
     <div class="header-input"><span class="iconfont">&#xe60b;</span>输入城市/景点/游玩主题</div>
-    <div class="header-right">
-      <span style="font-size: 16px">{{this.city}}</span>
+    <div is="router-link" class="header-right" to="/city">
+      <span>{{this.city}}</span>
       <span class="iconfont">&#xe6aa;</span>
     </div>
   </div>
@@ -28,7 +28,8 @@ export default {
 .header
   display: flex
   background: $headerBgColor
-  line-height: 44px
+  line-height: $headerHeight
+  height: $headerHeight
   color: #fff
 
   .header-left
@@ -53,6 +54,8 @@ export default {
   .header-right
     width: 20%
     padding-left: 12px
+    color: white
+    font-size: 16px
 
     .icon-font
       font-size: 6px
