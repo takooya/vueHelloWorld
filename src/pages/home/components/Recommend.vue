@@ -41,6 +41,7 @@ export default {
   line-height: 40px
   background: #eee
   text-indent: 3px
+  padding-left: 13px
 
 .item
   overflow: hidden
