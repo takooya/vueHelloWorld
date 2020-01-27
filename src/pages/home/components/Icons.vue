@@ -81,38 +81,42 @@ export default {
   height: 0
   padding-bottom: 50%
 
-.icon
-  position: relative
-  overflow: hidden
-  height: 0
-  width: 25%
-  float: left
-  padding-bottom: 25%
+.icons
+  margin-top: 5px
+  margin-bottom: 5px
 
-  .icon-img
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 24px
-    background: white
-    box-sizing: border-box
-    padding: 1px
+  .icon
+    position: relative
+    overflow: hidden
+    height: 0
+    width: 25%
+    float: left
+    padding-bottom: 25%
 
-    .icon-img-content
-      height: 100%
-      display: block
-      margin: 0 auto
+    .icon-img
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 24px
+      background: white
+      box-sizing: border-box
+      padding: 1px
 
-  .icon-desc
-    position: absolute
-    left: 0
-    right: 0
-    bottom: 0
-    line-height: 24px
-    height: 24px
-    color: $darkTextColor
-    text-align: center
-    ellipsis()
+      .icon-img-content
+        height: 100%
+        display: block
+        margin: 0 auto
+
+    .icon-desc
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      line-height: 24px
+      height: 24px
+      color: $darkTextColor
+      text-align: center
+      ellipsis()
 
 </style>
