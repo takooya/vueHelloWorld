@@ -1,10 +1,10 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" v-bind:key="item.id">
-          <div class="icon-img"><img class="icon-img-content" :src="item.iconUrl"/></div>
-          <p class="icon-desc">{{item.name}}</p>
+          <div class="icon-img"><img class="icon-img-content" :src="item.imgUrl"/></div>
+          <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -16,52 +16,30 @@ import HomeSwiper from './Swiper'
 
 export default {
   name: 'HomeIcons',
+  props: {
+    list: {
+      type: Array,
+      default: function () {
+        return [{
+          id: '0001',
+          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
+          desc: '暂无数据'
+        }]
+      }
+    }
+  },
   components: {HomeSwiper},
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        name: '热门景点'
-      }, {
-        id: '0002',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        name: '一日游'
-      }, {
-        id: '0003',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/87/20656da0ac042002.png',
-        name: '家乡特色'
-      }, {
-        id: '0004',
-        iconUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png',
-        name: '必游景点'
-      }, {
-        id: '0005',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-        name: '滑雪季'
-      }, {
-        id: '0006',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        name: '泡温泉'
-      }, {
-        id: '0007',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        name: '男生最爱'
-      }, {
-        id: '0008',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/87/20656da0ac042002.png',
-        name: '女生最爱'
-      }, {
-        id: '0009',
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-        name: '最新开张最新开张最新开张最新开张最新开张最新开张最新开张最新开张最新开张最新开张'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

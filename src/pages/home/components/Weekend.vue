@@ -2,7 +2,7 @@
   <div>
     <div class="weekend-title">周末去哪儿</div>
     <div class="weekend-wrap">
-      <a class="weekend-link" v-for="item of itemList" :key="item.id" :href="item.href">
+      <a class="weekend-link" v-for="item of list" :key="item.id" :href="item.href">
         <div class="weekend-img-wrap">
           <img class="weekend-img" :src="item.imgUrl"/>
         </div>
@@ -16,27 +16,18 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      itemList: [{
-        id: '0001',
-        href: '/',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/c2/0be94f64d9df91.jpg_r_640x214_130f7614.jpg',
-        title: '长春打卡',
-        desc: '这是一片历史与现实交映的黑土地'
-      }, {
-        id: '0002',
-        href: '/',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/c2/0be94f64d9df91.jpg_r_640x214_130f7614.jpg',
-        title: '长春打卡',
-        desc: '这是一片历史与现实交映的黑土地'
-      }, {
-        id: '0003',
-        href: '/',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/c2/0be94f64d9df91.jpg_r_640x214_130f7614.jpg',
-        title: '长春打卡',
-        desc: '这是一片历史与现实交映的黑土地'
-      }]
+  props: {
+    list: {
+      type: Array,
+      default: function () {
+        return [{
+          id: '0001',
+          href: '/',
+          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/c2/0be94f64d9df91.jpg_r_640x214_130f7614.jpg',
+          title: '暂无数据',
+          desc: '暂无数据'
+        }]
+      }
     }
   }
 }
@@ -62,7 +53,7 @@ export default {
     .weekend-img-wrap
       overflow: hidden
       height: 0
-      padding-bottom: 33.9%
+      padding-bottom: 37.09%
 
       .weekend-img
         width: 100%

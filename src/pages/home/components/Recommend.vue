@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item" v-for="item of itemList" :key="item.id">
+      <li class="item" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,20 +17,21 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      itemList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201304/17/f3b5735b997d5059c8d65eac.jpg_200x200_4201bd69.jpg',
-        title: '长白山西坡',
-        desc: '美丽的雪景，让您流连忘返，快来体验吧'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1501/fa/fae51aa2e90c323d.water.jpg_200x200_907a2a72.jpg',
-        title: '长白山四季漂流',
-        desc: '长白山四季漂流，快来体验吧'
-      }]
+  props: {
+    list: {
+      type: Array,
+      default: function () {
+        return [{
+          id: '0001',
+          imgUrl: 'http://img1.qunarzz.com/sight/p0/201304/17/f3b5735b997d5059c8d65eac.jpg_200x200_4201bd69.jpg',
+          title: '暂无数据',
+          desc: '暂无数据'
+        }]
+      }
     }
+  },
+  data () {
+    return {}
   }
 }
 </script>
