@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :hotCities="hotCities" :cities="cities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-list :hotCities="hotCities" :cities="cities" :letter="letter"></city-list>
+    <city-alphabet :cities="cities" @clickLetter="clickLetter"></city-alphabet>
   </div>
 </template>
 
@@ -37,12 +37,16 @@ export default {
         this.cities = res.data.cities
       }
       console.log(res)
+    },
+    clickLetter (letter) {
+      this.letter = letter
     }
   },
   data () {
     return {
       hotCities: [],
-      cities: {}
+      cities: {},
+      letter: ''
     }
   }
 }
