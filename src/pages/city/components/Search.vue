@@ -11,7 +11,7 @@
         >
           {{item.name}}
         </li>
-        <li class="search-item border-bottom" v-show="hasNoData">
+        <li class="search-item border-bottom" v-show="hasNoData">watch:
           没有找到匹配数据
         </li>
       </ul>
